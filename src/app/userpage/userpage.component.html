@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SecutrixDapp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          
+                    
+           
+        
+      </ul>
+      
+      <button style="float: right;" class="btn btn-outline-success my-2 my-sm-0" (click)="CreateUpload()">Upload</button>
+    </div>
+  </nav>
+
+
+  <div class="grid">
+      <div class="item item-1">
+          <div class="loginBox">
+              <h1>Profile</h1>
+              <img src="./assets/img/bgimg.jpeg" class="user">
+              <form>
+                  <p>AccountName</p>
+                  <label class="acc_name">{{username}}</label>
+             </form> 
+             <hr/>
+          </div>
+      </div>
+      <div class="item item-2"style="padding:10px;" >
+
+      
+        <div *ngFor="let sec of initial_cert; let i = index">
+          <div class="card card1" style="margin-top: 7px;">
+             
+            <div class="card">
+                <div class="card-header">
+                        <div>
+                               certname: {{sec.certname}}
+                                <div style="float:right;align-content: center;text-align: center;">
+                                        createdTime: {{sec.time|date :'dd-MM-yyyy'	}} | {{sec.time|date:'shortTime'}}  
+                                </div>
+                        </div>
+                </div>
+                <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                                <li class="list-group-item"> <h5 class="card-title"> Description</h5></li>
+                                <li class="list-group-item"> <p class="card-text">{{sec.description}}</p></li>
+
+                        </ul>
+
+                        <a  (click)="checks(i,sec.ipfs,sec.certname)" style="margin-top:10px;" class="btn btn-primary">Display Cert</a>
+                 
+
+                  <div>
+                 
+                        <div style="float:right;align-content: center;text-align: center;">
+                  <label *ngIf = "sec.openstatus">
+                        <a><i class="material-icons mt-3 cursor" (click)="certdisplayoff(i)" style="color: #a09fed;">clear</i></a>
+                    </label>
+                        </div>
+                </div>
+                  <img class="card-img-top" src="{{sec.imagestring}}"  alt="Card image cap" *ngIf="sec.openstatus" style="width: 500px;align-items: center;margin-left: 150px;margin:5% 28%" >
+
+                    <div style="text-align:center;align-items: center;">
+                    
+                        <a  id="atname" (click)="downloadImage(i)"><i class="material-icons"  *ngIf="sec.openstatus">cloud_download</i></a>
+                    </div>
+                    </div>
+              </div>
+          </div>
+          
+          <br/>
+        </div>
+    </div>
+
+    <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#exampleModalCenter">Open Modal</button>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter"   tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" #closeBtn>
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+        <div class="modal-body" style="font-size: 20px;margin: auto;">
+            
+
+                      <div class="card" >
+                            <div class="card-header">
+
+                                    <h5 class="card-title"> Select Record</h5>
+                            </div>
+                            
+                            <div class="card-body">
+                             
+                                    <a><img style="width: 300px;height:280px; border-radius: 40px;padding: 10px 16px;" alt="" class="mb-4" src={{url}}></a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><input type="text" style="width:400px;" id="filenames" placeholder="certname" (input)="somevalue($event.target.value);"></li>
+                              <li class="list-group-item" ><input style="width:400px;" type="text" id="filenames" placeholder="description" (input)="somevalues($event.target.value);"></li>
+                              <li class="list-group-item"><label for="fileToUpload">
+                                    <a><i class="material-icons mt-3 cursor" style="color: #a09fed;">image</i></a>
+                            </label>
+                            <a style="padding: 15px">&nbsp;{{fileName}}&nbsp;</a>
+                            <input id="fileToUpload" type="file" (change)="onFileChanged($event)" accept="image/*" style="display:none;">
+                            <label *ngIf = "File_select">
+                                <a><i class="material-icons mt-3 cursor" (click)="file_clear()" style="color: #a09fed;">clear</i></a>
+                            </label></li>
+                            <li class="list-group-item" style="margin: auto;align-items: center;text-align: center;"> <button  type="button" class="btn btn-success" (click)="UploderPost()">Upload</button></li>
+                            </ul>
+                    
+                          </div>
+			
+		</div>
+		<div class="modal-footer" style="margin: auto;">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+		</div>
+	</div>
+</div>  
