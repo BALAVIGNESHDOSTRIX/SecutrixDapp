@@ -1,0 +1,24 @@
+{
+  "name": "secutrixdapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BALAVIGNESHDOSTRIX/SecutrixDapp.git"
+  },
+  "author": "BALAVIGNESH.M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BALAVIGNESHDOSTRIX/SecutrixDapp/issues"
+  },
+  "homepage": "https://github.com/BALAVIGNESHDOSTRIX/SecutrixDapp#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+}
