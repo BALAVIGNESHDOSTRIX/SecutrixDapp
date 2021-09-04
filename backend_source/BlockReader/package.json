@@ -1,0 +1,32 @@
+{
+  "name": "blockreader",
+  "version": "1.0.0",
+  "description": "Contineously read the Eos block and update the DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BALAVIGNESH.M",
+  "license": "ISC",
+  "dependencies": {
+    "binaryen": "^55.0.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "demux": "^2.0.0",
+    "demux-eos": "^2.0.0",
+    "ejs": "^2.6.1",
+    "eosjs": "^16.0.9",
+    "express": "^4.16.4",
+    "file-encryptor": "^0.1.1",
+    "formidable": "^1.2.1",
+    "http": "0.0.0",
+    "image-to-base64": "^2.0.1",
+    "ipfs-api": "^26.1.2",
+    "mongodb": "^3.1.10",
+    "mongodb-queue": "^3.1.0",
+    "mongoose": "^5.3.14",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "pipe": "^1.1.0"
+  }
+}
