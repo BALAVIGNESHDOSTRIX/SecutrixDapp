@@ -16,7 +16,7 @@
     "demux-eos": "^2.0.0",
     "ejs": "^2.6.1",
     "eosjs": "^16.0.9",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "file-encryptor": "^0.1.1",
     "formidable": "^1.2.1",
     "http": "0.0.0",
